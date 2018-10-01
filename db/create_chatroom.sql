@@ -1,4 +1,5 @@
 INSERT INTO chatroom
-(subject, creator, image)
+(subject, creator_id, image)
 VALUES
-($1, $2, $3)
+($1, $2, $3);
+SELECT * FROM chatroom

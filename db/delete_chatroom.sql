@@ -1,0 +1,1 @@
+DELETE FROM chatroom where creator_id = $1

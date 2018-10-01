@@ -1,0 +1,33 @@
+ .chatroom-boxes {
+     display: flex;
+     justify-content: space-around;
+     flex-direction: column;
+ }
+ 
+ .chatroomImages {
+     height: 100px;
+     width: 100px;
+ }
+
+ .chatroomBoxes {
+     display: flex;
+     border: 1px solid blue
+ }
+
+ .delete-button {
+     display: flex;
+     height: 25px;
+     width: 55px;
+     align-self: flex-end;
+ }
+
+ .link-tag {
+     color: red;
+     transition: color .5s; 
+     font-size: 15px;
+ }
+
+ .link-tag:hover {
+     color: blue;
+    font-size: 20px
+ }

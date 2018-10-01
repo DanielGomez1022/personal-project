@@ -3,11 +3,16 @@ import axios from 'axios';
 
 class Login extends Component {
   state = {
-    user: null,
+    user: '',
     showRegister: false,
     message: null,
   };
 
+  componentDidMount(){
+    axios.get('/api/get_logged_in_user').then(res => {
+      this.setState({user: res.data})
+    })
+  }
   getMessage = error => error.response
     ? error.response.data
       ? error.response.data.message
@@ -19,20 +24,19 @@ class Login extends Component {
     const username = this.refs.username.value;
     const password = this.refs.password.value;
     const email = this.refs.email.value;
-    const image = this.refs.value;
+    const image = this.refs.image.value;
     axios.post('/register', {
       username,
       password,
       email,
-      image
+      image,
     }).then(response => {
-      this.setState({ user: response.data }, this.props.history.push('/'));
+      this.setState({ user: response.data }, this.props.history.push('/profile'));
     }).catch(error => {
       this.setState({ message: 'Something went wrong: ' + this.getMessage(error) });
     });
   };
   
-
   
   login = () => {
     this.setState({ message: null });
@@ -42,7 +46,7 @@ class Login extends Component {
       username,
       password
     }).then(response => {
-      this.setState({ user: response.data }, this.props.history.push('/'));
+      this.setState({ user: response.data }, this.props.history.push('/profile'));
     }).catch(error => {
       this.setState({ message: 'Something went wrong: ' + this.getMessage(error) });
     });
@@ -66,7 +70,7 @@ class Login extends Component {
       Password: <input type="password" ref="password" />
       {' '}
     </div>
-
+    console.log(this.state.user)
     return (
       <div className="App">
         <div className="App-intro">
@@ -88,15 +92,15 @@ class Login extends Component {
                 <button onClick={this.register}>Register</button>
               </div>}
               {!showRegister && <div>
-                <h2>Log in</h2>
+                <h2>Login</h2>
                 {inputFields}
-                <button onClick={this.login}>Log in</button>
+                <button onClick={this.login}>Login</button>
               </div>}
               {message}
             </div>
           </div>}
           {user && <div className="user-info">
-            <button onClick={this.logout}>Log out</button>
+            <button onClick={this.logout}>Logout</button>
           </div>}
           </div>
         </div>

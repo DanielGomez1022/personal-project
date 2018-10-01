@@ -1,0 +1,44 @@
+.profile-container {
+    display:flex;
+    flex-direction: column
+
+}
+
+.profile-image {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 75px;
+    top: 100px
+    
+}
+
+.profile-username {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 375px;
+    left: 150px
+
+}
+
+.email {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 450px;
+    left: 100px;
+}
+
+.bio {
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    display: flex;
+    align-self: center;
+    align-items: flex-start;
+    bottom: 500px;
+    left: 500px
+    
+}
+

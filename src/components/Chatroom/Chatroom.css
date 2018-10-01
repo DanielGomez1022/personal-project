@@ -1,0 +1,68 @@
+
+.Chatroom {
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.chatBox {
+    height: 600px;
+    width: 800px;
+    border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.user-container {
+    font-size: 20px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    height: 600px;
+    width: 300px;
+    border: 1px solid red;
+    flex-direction: column
+}
+
+.subject-container {
+font-size: 20px;
+position: absolute;
+top: 0;
+border: 1px solid blue;
+width: 797px;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.message-container {
+    text-align: center;
+    border: 1px solid blue;
+    display: flex;
+    height: 50px;
+    width: 779px;
+    position: fixed;
+}
+
+.input-box {
+    width: 797px;
+    background-color: transparent;
+    transition: background-color .5s;
+}
+
+.message {
+    font-size: 20px;
+    display: flex;
+    align-self: flex-start;
+    position: absolute;
+    top: 10px;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    align-items: center;
+}
+
