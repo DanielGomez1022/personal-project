@@ -3,7 +3,7 @@ import socketIOClient from 'socket.io-client'
 import './Chatroom.css'
 import axios from 'axios'
 
-const socket = socketIOClient('http://localhost:4000')
+const socket = socketIOClient('192.168.1.6:4000')
 
 export class Chatroom extends Component {
     constructor(){
@@ -26,7 +26,7 @@ export class Chatroom extends Component {
    socket.on("message", (userMessage) => {
      console.log('in socket revieving end', userMessage)
       this.setState({
-        messageList: [...this.state.messageList].concat(userMessage.user + ': ').concat(userMessage.message)
+        messageList: [...this.state.messageList].concat({username: userMessage.user, message: userMessage.message})
       })
    })
 }
@@ -38,7 +38,8 @@ export class Chatroom extends Component {
       socket.emit('get_users', {username: user.data[0].username, room: this.props.match.params.name})
       this.setState({
         username: user.data[0].username
-      })})
+      })
+    })
     
 
     // axios.get('/api/chatrooms').then(res => {
@@ -52,6 +53,10 @@ export class Chatroom extends Component {
     //   socket.emit('user_list', {username: username.data.username, image: username.data.image })
     //   this.setState({users: username.data, username: username.data.username, image: username.data.image })
     // })
+   }
+  
+   componentWillUnmount(){
+       socket.emit('left', {username: this.state.username, room: this.props.match.params.name})
    }
 
   changeHandler = (val) => {
@@ -90,12 +95,12 @@ render() {
      const messageArray = this.state.messageList.map(message => {
        console.log(message, 'message')
        return (
-       <div>
-       <p>{message}</p>
+       <div className = 'messagesInChat'>
+          <p className='username'>{message.username}</p>:<p className='usermessage'>{message.message}</p>
       </div>
       )
      })
-
+     console.log('message list =============',this.state.messageList)
     return (
       <div className = 'Chatroom'>
         <div className = 'user-container'>Users: {usersToDisplay}</div>
@@ -104,8 +109,12 @@ render() {
         </span>
         <div className = 'message'>{messageArray}</div>
         <div className = 'message-container'>
-        <input className = 'input-box' onChange = {(e) => this.changeHandler(e.target.value)} ></input>
-        <button onClick = {(e) => socket.emit("message", messageObj)}>Send</button>
+        <input onKeyPress={(e) => {
+          if(e.key === "Enter"){
+          socket.emit("message", messageObj)
+          }
+          }} className = 'input-box' onChange = {(e) => this.changeHandler(e.target.value)} ></input>
+        <button  onClick = {(e) => socket.emit("message", messageObj)}>Send</button>
         </div>
         </div>
       </div>

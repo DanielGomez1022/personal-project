@@ -2,4 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: url('http://informationcommunicationtechnology.com/wp-content/uploads/2018/06/Cool-Space-Screensavers.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+
 }

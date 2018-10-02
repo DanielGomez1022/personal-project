@@ -12,7 +12,7 @@ export default class Home extends Component {
         
         render(){
             return (
-            <div className = 'background-Image' >
+            <div> <div className = 'nav' />
              </div>
         )
     }

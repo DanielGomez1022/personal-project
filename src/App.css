@@ -1,0 +1,21 @@
+.nav {
+    width: 100vw;
+    height: 100vh;
+}
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    background-color: transparent ;
+    transition: background-color .5s;
+}
+
+.link {
+    text-decoration: none;
+    color: white
+}
+
+.navigation:hover {
+    background-color:rgb(17, 16, 16);
+}

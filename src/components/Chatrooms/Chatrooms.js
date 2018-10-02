@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import './Chatrooms.css';
 import {Link} from 'react-router-dom';
-import socketIOClient from 'socket.io-client'
+// import socketIOClient from 'socket.io-client'
 
-const socket = socketIOClient()
+// const socket = socketIOClient()
 
 class Chatrooms extends Component {
     constructor(props) {
@@ -13,16 +13,15 @@ class Chatrooms extends Component {
             chatRoomlist: null,
             users: '',
             createChatName: '',
-            mostUsedRooms: [],
             chatlist: [],
             image: '',
             subject: ''
         }
-        socket.emit('get_user', 'userConnected')
-        socket.on('user_room_count', (roomsAndUserCount) => {
-        this.setState({mostUsedRooms: roomsAndUserCount})
-    })
-    }
+    //     socket.emit('get_user', 'userConnected')
+    //     socket.on('user_room_count', (roomsAndUserCount) => {
+    //     this.setState({mostUsedRooms: roomsAndUserCount})
+    // })
+     }
 
     componentDidMount() {
         axios.get('/api/chatrooms').then(response => {
@@ -64,7 +63,9 @@ class Chatrooms extends Component {
     }
 
     deleteChat = (id) => {
+        console.log(id)
         axios.delete(`/api/chatrooms/${id}`).then(res => {
+            console.log(res)
             this.setState({chatList: res.data})
         })
     }

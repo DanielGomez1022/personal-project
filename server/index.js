@@ -91,13 +91,30 @@ io.sockets.on("connection", (socket) => {
     socket.on("message", (messageObj) => {
         if(messageObj){
         console.log(messageObj)
-        io.emit('message', {user: messageObj.username,  message: messageObj.message, id:  messageID}); 
-        messageID++  
+        io.emit('message', {user: messageObj.username,  message: messageObj.message, id: messageID}); 
+        messageID++
         }
     });
 
-    socket.on('disconnect', () => {
-       console.log('user disconnected')
+    socket.on('left', (disconnectingUser)=> {
+        console.log('user disconnected', disconnectingUser)
+        rooms = rooms.filter(user => {
+            if(user.username !== disconnectingUser.username){
+                return user
+            }
+        })
+
+        let userlist = rooms.filter((user) => {
+            if (user.room == disconnectingUser.room){
+                return user.username
+            }
+        })
+
+        io.in(disconnectingUser.room).emit("user_list", userlist)
+
+    })
+
+    socket.on('disconnect', (user) => {
        socket.leave('chatroom')
     })  
 })

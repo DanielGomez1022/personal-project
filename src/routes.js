@@ -11,10 +11,10 @@ import './routes.css'
 export default (
    <div> 
        <nav className = "navigation">
-           <Link to = "/">Home</Link>
-           <Link to = "/chatrooms">Chatrooms</Link>
-           <Link to = "/profile">Profile</Link>
-           <Link to = "/login">Login/SignUp</Link>
+           <Link className = 'link' to = "/">Home</Link>
+           <Link className = 'link' to = "/chatrooms">Chatrooms</Link>
+           <Link className = 'link' to = "/profile">Profile</Link>
+           <Link className = 'link' to = "/login">Login/SignUp</Link>
         </nav>
         <Switch>
         <Route exact path = "/" component = {Home}/>

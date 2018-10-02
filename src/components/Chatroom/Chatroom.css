@@ -6,6 +6,7 @@
 }
 
 .chatBox {
+    
     height: 600px;
     width: 800px;
     border: 1px solid green;
@@ -24,7 +25,7 @@
     align-items: center;
     height: 600px;
     width: 300px;
-    border: 1px solid red;
+    border: 1px solid black;
     flex-direction: column
 }
 
@@ -42,7 +43,7 @@ align-items: center;
 
 .message-container {
     text-align: center;
-    border: 1px solid blue;
+    border: 1px solid black;
     display: flex;
     height: 50px;
     width: 779px;
@@ -50,19 +51,42 @@ align-items: center;
 }
 
 .input-box {
+    font-size: 25px;
     width: 797px;
-    background-color: transparent;
-    transition: background-color .5s;
+    background-color: white
+
 }
 
 .message {
+    width: 100%;
+    color: blue;
     font-size: 20px;
     display: flex;
-    align-self: flex-start;
+    /* align-self: flex-start; */
     position: absolute;
-    top: 10px;
-    /* justify-content: space-between; */
+    top: 25px;
+    justify-content: space-between;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    flex-direction: flex-start;
 }
 
+
+.messagesInChat {
+    background: rgb(247, 245, 245);
+    /* border-bottom: 5px solid blue;
+    border-top: 5px solid blue; */
+    box-shadow: 10px 5px 5px blue;
+    min-height: 60px;
+    width: 100%;
+    color: rgb(56, 56, 56);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.username {
+    color: red;
+}

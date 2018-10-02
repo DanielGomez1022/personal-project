@@ -11,7 +11,8 @@
 
  .chatroomBoxes {
      display: flex;
-     border: 1px solid blue
+     /* border: 1px solid blue */
+     align-items: row;
  }
 
  .delete-button {
@@ -22,12 +23,12 @@
  }
 
  .link-tag {
-     color: red;
+     color: blue;
      transition: color .5s; 
      font-size: 15px;
  }
 
  .link-tag:hover {
-     color: blue;
+     color: red;
     font-size: 20px
  }

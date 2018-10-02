@@ -4,7 +4,7 @@ import routes from './routes'
 class App extends Component {
   render() {
     return (
-      <div className="background-Image">
+      <div className = 'nav'>
       {routes}
       </div>
     );
