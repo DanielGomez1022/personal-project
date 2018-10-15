@@ -109,7 +109,6 @@ io.sockets.on("connection", (socket) => {
                 return user.username
             }
         })
-
         io.in(disconnectingUser.room).emit("user_list", userlist)
 
     })
@@ -121,9 +120,10 @@ io.sockets.on("connection", (socket) => {
 
 app.get('/api/chatrooms', controller.read)
 app.post('/api/chatrooms', controller.create)
-app.delete('/api/chatrooms/:creator_id', controller.delete)
+app.delete('/api/chatrooms/:id', controller.delete)
 app.get('/api/get_logged_in_user', controller.readUser)
 app.get('/api/get_users_in_chatroom', controller.readUserInChatroom)
+app.put('/api/chatrooms', controller.updateChatroomSubject)
 
 const path = require('path')
 app.get('*', (req, res)=>{

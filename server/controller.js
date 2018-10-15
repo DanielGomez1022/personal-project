@@ -23,7 +23,8 @@ module.exports = {
     
     delete: (req, res) => {
         const db = req.app.get('db')
-    db.delete_chatroom([this.props.match.params.name]).then(response => {
+        console.log('id--------------------', req.params.id)
+    db.delete_chatroom([req.params.id]).then(response => {
         res.status(200).send(response)
     }).catch(error => {console.log('error in delete chatroom', error)
         res.status(500).send('unexpected error when trying to delete')
@@ -46,5 +47,14 @@ module.exports = {
         }).catch(error => {console.log('error in profile', error)
         res.status(500).send('unexpected error occured')
     })
-  }
+    },
+    updateChatroomSubject: (req, res) => {
+        const db = req.app.get('db')
+        db.updateChatroomSubject([req.body.image]).then(image => {
+            res.status(200).send(image)
+        }).catch(error => {
+            console.log('error in updateChatroomSubject', error)
+            res.status(500).send('unexpected error occured')
+        })
+    }
 }

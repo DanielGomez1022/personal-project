@@ -16,6 +16,7 @@ image TEXT
 
 CREATE TABLE IF NOT EXISTS chatroom (
 id SERIAL PRIMARY KEY,
+image text,
 subject TEXT,
 creator_id integer references users(id)
 );

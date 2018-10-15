@@ -94,7 +94,7 @@ class Login extends Component {
               {!showRegister && <div>
                 <h2>Login</h2>
                 {inputFields}
-                <button onClick={this.login}>Login</button>
+                <button  onClick={this.login}>Login</button>
               </div>}
               {message}
             </div>

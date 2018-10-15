@@ -1,1 +1,1 @@
-DELETE FROM chatroom where chatroom.id = $1
+DELETE FROM chatroom where id = $1;

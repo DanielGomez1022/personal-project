@@ -50,7 +50,6 @@ export class Profile extends Component {
             ?
         <div>
         <div>{userInfoToDisplay}</div>
-        
         </div>
             :
             'You need to login first'

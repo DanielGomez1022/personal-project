@@ -32,3 +32,18 @@
      color: red;
     font-size: 20px
  }
+
+ .update-button {
+    display: flex;
+    height: 25px;
+    width: 55px;
+    align-self: flex-end
+ }
+
+ .update-input {
+     display: flex;
+     height: 19px;
+     width: 200px;
+     align-self: flex-end;
+     
+ }

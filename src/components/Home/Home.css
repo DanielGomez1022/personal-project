@@ -1,4 +1,22 @@
-.background-Image {
-    height: 100vh;
-    width: 100vw
+.usersUserName {
+ position: absolute;
+ top: 10%;
+ left: 9%
+}
+
+.profileImage {
+    /* height: 50px;
+    width: 50px; */
+ position: absolute;
+ top: 10%;
+ left: 5%;
+ height: 50px;
+ width: 50px
+}
+
+.title {
+    position: absolute;
+    top: 40%;
+    left: 36%;
+    font-size: 60px;
 }

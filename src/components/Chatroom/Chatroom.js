@@ -3,7 +3,7 @@ import socketIOClient from 'socket.io-client'
 import './Chatroom.css'
 import axios from 'axios'
 
-const socket = socketIOClient('192.168.1.6:4000')
+const socket = socketIOClient('localhost:4000')
 
 export class Chatroom extends Component {
     constructor(){
@@ -40,19 +40,6 @@ export class Chatroom extends Component {
         username: user.data[0].username
       })
     })
-    
-
-    // axios.get('/api/chatrooms').then(res => {
-    //   console.log(res.data)
-    //   this.setState({
-    //     users: res.data
-    //   })
-    // })
-
-    // axios.get('/api/get_logged_in_user').then(username => {
-    //   socket.emit('user_list', {username: username.data.username, image: username.data.image })
-    //   this.setState({users: username.data, username: username.data.username, image: username.data.image })
-    // })
    }
   
    componentWillUnmount(){
@@ -62,6 +49,8 @@ export class Chatroom extends Component {
   changeHandler = (val) => {
     this.setState({message: val})
   }
+
+  
 
   message = (id, message) => {
     axios.put(`/api/messages/&{id}`, {message}).then(res => {
